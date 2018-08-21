@@ -103,6 +103,7 @@
 <script>
     import Row from 'iview/src/components/grid/row';
     import ICol from 'iview/src/components/grid/col';
+    import $ from 'jquery';
 
     export default {
         components: {
@@ -248,6 +249,22 @@
                 this.upfileModal = true;
             },
             searchCommonCase () {
+                let url = '/api/getall';
+                $.ajax({
+                    type: 'GET',
+                    async: true,
+                    url: url,
+                    dataType: 'json',
+                    crossDomain: true,
+                    success: (result, status) => {
+                        this.$Message.success(result.msg);
+                        window.ajaxFail.call(this, result);
+                        // this.$store.commit('setAvator', 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3448484253,3685836170&fm=27&gp=0.jpg');
+                    },
+                    error: (errorMsg) => {
+                        this.$Message.error(errorMsg);
+                    }
+                });
             },
             getProjectPageSize (size) {
                 this.pageHelp.pageSize = size;
