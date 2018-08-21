@@ -18,7 +18,7 @@
                                 <Col span="16" style="padding-left:6px;">
                                     <Row class-name="made-child-con-middle" type="flex" align="middle">
                                         <div>
-                                            <Button type="success" @click="getall">Success</Button>
+                                            <!--<Button type="success" @click="getall">Success</Button>-->
                                             <b class="card-user-infor-name">Admin</b>
                                             <p>super admin</p>
                                         </div>
